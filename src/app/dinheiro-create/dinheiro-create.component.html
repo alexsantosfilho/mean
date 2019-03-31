@@ -1,0 +1,36 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" [routerLink]="['/dinheiros']"><mat-icon>list</mat-icon></a>
+</div>
+<form [formGroup]="dinheiroForm" (ngSubmit)="onFormSubmit(dinheiroForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="VALORIMOVEL" formControlName="valorimovel"
+          [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!dinheiroForm.get('valorimovel').valid && dinheiroForm.get('valorimovel').touched">Por favor digite o VALOR do IMOVEL</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Percentualentrada" formControlName="Percentualentrada"
+          [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!dinheiroForm.get('Percentualentrada').valid && dinheiroForm.get('Percentualentrada').touched">Por favor digite o Percentual de entrada</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Taxafinanciamento" formControlName="taxafinanciamento"
+          [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!dinheiroForm.get('taxafinanciamento').valid && dinheiroForm.get('taxafinanciamento').touched">Por favor digite a Taxa de financiamento</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Quantidadeparcelas" formControlName="quantidadeparcelas"
+          [errorStateMatcher]="matcher"></textarea>
+    <mat-error>
+      <span *ngIf="!dinheiroForm.get('quantidadeparcelas').valid && dinheiroForm.get('quantidadeparcelas').touched">Por favor digite a quantida de parcelas</span>
+    </mat-error>
+  </mat-form-field>
+  <div class="button-row">
+    <button type="submit" [disabled]="!dinheiroForm.valid" mat-raised-button color="primary"><mat-icon>salvar</mat-icon></button>
+  </div>
+</form>

@@ -1,24 +1,78 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductsComponent } from './products/products.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductAddComponent } from './product-add/product-add.component';
-import { ProductEditComponent } from './product-edit/product-edit.component';
+import { RouterModule, Routes } from '@angular/router';
+import { DinheiroComponent } from './dinheiro/dinheiro.component';
+import { DinheiroDetailComponent } from './dinheiro-detail/dinheiro-detail.component';
+import { DinheiroCreateComponent } from './dinheiro-create/dinheiro-create.component';
+import { DinheiroEditComponent } from './dinheiro-edit/dinheiro-edit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {
+  MatInputModule,
+  MatPaginatorModule,
+  MatProgressSpinnerModule,
+  MatSortModule,
+  MatTableModule,
+  MatIconModule,
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule } from '@angular/material';
+
+const appRoutes: Routes = [
+  {
+    path: 'dinheiros',
+    component: DinheiroComponent,
+    data: { Percentualentrada: 'dinheiro List' }
+  },
+  {
+    path: 'dinheiro-details/:id',
+    component: DinheiroDetailComponent,
+    data: { Percentualentrada: 'dinheiro Details' }
+  },
+  {
+    path: 'dinheiro-create',
+    component: DinheiroCreateComponent,
+    data: { Percentualentrada: 'Create dinheiro' }
+  },
+  {
+    path: 'dinheiro-edit/:id',
+    component: DinheiroEditComponent,
+    data: { Percentualentrada: 'Edit dinheiro' }
+  },
+  { path: '',
+    redirectTo: '/dinheiros',
+    pathMatch: 'full'
+  }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent,
-    ProductDetailComponent,
-    ProductAddComponent,
-    ProductEditComponent
+    DinheiroComponent,
+    DinheiroDetailComponent,
+    DinheiroCreateComponent,
+    DinheiroEditComponent
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
