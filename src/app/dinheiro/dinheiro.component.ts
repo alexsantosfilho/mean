@@ -11,7 +11,6 @@ export class DinheiroComponent implements OnInit {
 
   dinheiros: any;
   displayedColumns = ['valorimovel', 'Percentualentrada', 'taxafinanciamento', 'quantidadeparcelas', 'valorEntrada' ];
-  dataSource = new DinheiroDataSource(this.api);
 
   constructor(private api: ApiService) { }
 
